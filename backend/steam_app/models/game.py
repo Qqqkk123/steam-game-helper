@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime
-from app.core.database import Base
+# ⚠️ 升级为 steam_app
+from steam_app.core.database import Base
 import datetime
-
+# ... 下方代码完全保持不变
 
 class UserSubscription(Base):
     """

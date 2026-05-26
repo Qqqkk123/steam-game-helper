@@ -2,10 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from app.services.steam_api import SteamAPIService
-from app.core.database import get_db
-from app.models.game import UserSubscription
-from app.schemas.game import SubscriptionCreate, SubscriptionResponse
+# ⚠️ 升级为 steam_app
+from steam_app.services.steam_api import SteamAPIService
+from steam_app.core.database import get_db
+from steam_app.models.game import UserSubscription
+from steam_app.schemas.game import SubscriptionCreate, SubscriptionResponse
 
 router = APIRouter()
 
