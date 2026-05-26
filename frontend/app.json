@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/watchlist/watchlist"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1b2838",
+    "navigationBarTitleText": "Steam 游戏助手",
+    "navigationBarTextStyle": "white"
+  }
+}

@@ -1,13 +1,14 @@
 from fastapi import APIRouter
 from app.services.steam_api import SteamAPIService
 
-# 创建游戏模块的路由实例
 router = APIRouter()
 
 @router.get("/price/{app_id}")
-def get_game_price(app_id: str):
+async def get_game_price(app_id: str):
     """
-    暴露给前端小程序的 API 接口：获取 Steam 游戏价格
+    暴露给前端小程序的 API 接口
+    使用 await 关键字强行挂起并等待异步服务层返回清洗完的 dict 数据
     """
-    # 路由层不写具体抓取逻辑，直接调用服务层，符合解耦规范
-    return SteamAPIService.fetch_game_price_by_id(app_id)
+    # ⚠️ 确保这里必须有 await 关键字！
+    result = await SteamAPIService.fetch_game_price_by_id(app_id)
+    return result

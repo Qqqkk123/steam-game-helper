@@ -1,0 +1,133 @@
+page {
+  background-color: #1b2838; /* Steam 经典深蓝底色 */
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica;
+}
+
+.container {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+/* 搜索栏样式 */
+.search-box {
+  display: flex;
+  margin-bottom: 40rpx;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  height: 90rpx;
+  background: #101822;
+  border: 1px solid #2a475e;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #66c0f4;
+}
+
+.search-btn {
+  width: 200rpx !important;
+  height: 90rpx;
+  background: linear-gradient(to right, #47bfff, #1a7cc7);
+  color: #ffffff;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  padding: 0;
+  margin-left: 20rpx;
+  border-radius: 8rpx;
+}
+
+/* 游戏卡片样式 */
+.card-wrapper {
+  background: #121a24;
+  border-radius: 12rpx;
+  overflow: hidden;
+  border: 1px solid #233c51;
+  box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.4);
+  width: 100%;
+}
+
+.game-cover {
+  width: 100%;
+  height: 330rpx;
+  background-color: #0d131b;
+}
+
+.game-detail {
+  padding: 30rpx;
+}
+
+.game-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 24rpx;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  background: #0d131b;
+  padding: 16rpx;
+  border-radius: 6rpx;
+}
+
+.discount-badge {
+  background: #4c6b22;
+  color: #a3d200;
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 10rpx 16rpx;
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+.price-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.original-price {
+  font-size: 24rpx;
+  color: #566474;
+  text-decoration: line-through;
+}
+
+.current-price {
+  font-size: 34rpx;
+  color: #ffffff;
+}
+
+.current-price.sale {
+  color: #a3d200; /* 打折时价格变绿 */
+}
+
+.sub-btn {
+  margin: 0 30rpx 30rpx 30rpx !important;
+  width: auto !important;
+  background: #2a475e;
+  color: #66c0f4;
+  font-size: 28rpx;
+  border: 1px solid #3b6e8c;
+}
+
+/* 空状态样式 */
+.empty-state {
+  margin-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.empty-text {
+  font-size: 26rpx;
+  color: #626e7a;
+  margin-top: 30rpx;
+  padding: 0 60rpx;
+}

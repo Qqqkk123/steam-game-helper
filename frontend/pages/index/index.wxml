@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="search-box">
+    <input class="search-input" type="number" placeholder="请输入 Steam 游戏 AppID (如 1091500)" bindinput="onInputId" value="{{appId}}" />
+    <button class="search-btn" loading="{{loading}}" disabled="{{loading}}" bindtap="queryGamePrice">查询价格</button>
+  </view>
+
+  <view class="card-wrapper" wx:if="{{gameInfo}}">
+    <image class="game-cover" src="{{gameInfo.header_image}}" mode="aspectFill" lazy-load />
+    
+    <view class="game-detail">
+      <text class="game-title">{{gameInfo.name}}</text>
+      
+      <view class="price-row">
+        <view class="discount-badge" wx:if="{{gameInfo.discount_percent > 0}}">
+          -{{gameInfo.discount_percent}}%
+        </view>
+        
+        <view class="price-numbers">
+          <text class="original-price" wx:if="{{gameInfo.discount_percent > 0}}">{{gameInfo.initial_price}}</text>
+          <text class="current-price {{gameInfo.discount_percent > 0 ? 'sale' : ''}}">{{gameInfo.current_price}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <button class="sub-btn" bindtap="subscribeGame">＋ 移入降价提醒记录本</button>
+  </view>
+
+  <view class="empty-state" wx:if="{{!gameInfo && !loading}}">
+    <icon type="search" size="48" color="#4a535a" />
+    <text class="empty-text">输入 AppID 点击上方查询，即刻开启价格监控</text>
+  </view>
+</view>
