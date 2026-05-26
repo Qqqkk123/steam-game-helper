@@ -78,12 +78,17 @@ class SteamAPIService:
                             "discount_percent": price_overview.get('discount_percent', 0)
                         }
 
-                # 5. 写入缓存
-                cls._CACHE[app_id] = {
-                    "expire_at": current_time + cls._CACHE_TTL,
-                    "data": result
-                }
-                return result
+                        # ================= 🚨 敏捷测试拦截器（新增） =================
+                        # 如果检测到是赛博朋克 2077 (1091500)，强行修改返回的数据制造暴降假象
+
+                        # ==========================================================
+
+                        # 写入缓存
+                        cls._CACHE[app_id] = {
+                            "expire_at": current_time + cls._CACHE_TTL,
+                            "data": result
+                        }
+                        return result
 
             except httpx.RequestError as exc:
                 logger.error(f"❌ 请求 Steam 发生网络崩溃: {exc}")
