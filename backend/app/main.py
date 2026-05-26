@@ -14,7 +14,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from app.api.v1.games import router as games_router
+from app.core.database import engine, Base  # 🌟 新增：导入引擎和基类
 
+# 🌟 新增：让 SQLAlchemy 检查并自动在本地磁盘创建所有缺失的数据库表
+Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="Steam 游戏助手后端",
     description="Steam 游戏推荐及价格优惠提醒记录系统的后端 API",

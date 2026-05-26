@@ -55,9 +55,39 @@ Page({
   },
 
   subscribeGame() {
-    wx.showToast({
-      title: '功能属于 Sprint 2，敬请期待',
-      icon: 'none'
+    const { gameInfo, appId } = this.data;
+    if (!gameInfo) return;
+
+    wx.showLoading({ title: '正在移入记录本...' });
+
+    // 调用后端的 POST /subscribe 接口对象进行数据库持久化
+    wx.request({
+      url: 'http://127.0.0.1:8000/api/v1/games/subscribe',
+      method: 'POST',
+      data: {
+        app_id: appId,
+        game_name: gameInfo.name,
+        cover_image: gameInfo.header_image,
+        initial_price: gameInfo.initial_price,
+        current_price: gameInfo.current_price
+      },
+      success: (res) => {
+        if (res.statusCode === 201) {
+          wx.showToast({ title: '成功移入监控本', icon: 'success' });
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.data.detail || '移入失败',
+            showCancel: false
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({ title: '网络异常', icon: 'none' });
+      },
+      complete: () => {
+        wx.hideLoading();
+      }
     });
   }
 });

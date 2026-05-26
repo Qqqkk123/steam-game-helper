@@ -1,2 +1,20 @@
-<!--pages/watchlist/watchlist.wxml-->
-<text>pages/watchlist/watchlist.wxml</text>
+<view class="container">
+  <view class="header-title">📋 我的价格监控本</view>
+  
+  <scroll-view scroll-y class="list-scroll" bindrefresherrefresh="onPullDownRefresh" refresher-enabled refresher-triggered="{{isRefreshing}}">
+    <view class="watch-card" wx:for="{{watchlist}}" wx:key="id">
+      <image class="card-img" src="{{item.cover_image}}" mode="aspectFill"/>
+      <view class="card-info">
+        <text class="card-name">{{item.game_name}}</text>
+        <view class="card-price-box">
+          <text class="tag">当前价：</text>
+          <text class="price-val">{{item.current_price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="no-data" wx:if="{{watchlist.length === 0}}">
+      <text>监控本空空如也，快去首页搜个游戏加进来吧！</text>
+    </view>
+  </scroll-view>
+</view>

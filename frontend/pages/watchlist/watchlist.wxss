@@ -1,1 +1,27 @@
-/* pages/watchlist/watchlist.wxss */
+page {
+  background-color: #1b2838;
+  color: #ffffff;
+}
+.container { padding: 30rpx; }
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #66c0f4;
+  margin-bottom: 30rpx;
+}
+.list-scroll { width: 100%; height: calc(100vh - 120rpx); }
+.watch-card {
+  display: flex;
+  background: #121a24;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid #233c51;
+}
+.card-img { width: 220rpx; height: 110rpx; border-radius: 4rpx; background: #0d131b; }
+.card-info { flex: 1; margin-left: 20rpx; display: flex; flex-direction: column; justify-content: space-between; }
+.card-name { font-size: 28rpx; font-weight: bold; color: #ffffff; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.card-price-box { font-size: 24rpx; }
+.tag { color: #626e7a; }
+.price-val { color: #a3d200; font-weight: bold; font-size: 28rpx; }
+.no-data { text-align: center; color: #4a535a; font-size: 26rpx; margin-top: 200rpx; }

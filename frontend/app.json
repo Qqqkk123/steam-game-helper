@@ -7,5 +7,21 @@
     "navigationBarBackgroundColor": "#1b2838",
     "navigationBarTitleText": "Steam 游戏助手",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#626e7a",
+    "selectedColor": "#66c0f4",
+    "backgroundColor": "#171a21",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "游戏搜索"
+      },
+      {
+        "pagePath": "pages/watchlist/watchlist",
+        "text": "监控记录"
+      }
+    ]
   }
 }
